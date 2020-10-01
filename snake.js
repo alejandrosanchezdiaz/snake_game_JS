@@ -8,10 +8,26 @@ export const SNAKE_SPEED = 2;
 
 const snakeBody = [{ x: 11, y: 11}]
 
-//Let's export this to functions so we can use them on the Game.js file
-//This two functions happens together every SNAKE_SPEED seconds.
+
+
+
+// How we get our snake moving? We're essentially just going to take the 
+// position of a given segment and the segment after that is now going 
+// to move into that new position.
+
 export function update() {
-    console.log('update snake');
+    for(let i = snakeBody.length - 2; i >= 0; i--){
+        // We're going to take essentially our previous element (in our
+        // case our last element) and we're going to set it equal to our current element in that
+        // 'i' position and we need to make sure that we set this as a brand new object
+        // so we're just going to spread out this object into a new object (in that way 
+        // we don't have any reference problems).
+        snakeBody[i + 1] = { ...snakeBody[i] }
+    }
+
+    // The last thing we have to do is update the head based on where we're moving.
+    snakeBody[0].x += 1;
+    snakeBody[0].y += 0;
 }
 
 
@@ -31,11 +47,13 @@ export function draw(gameBoard) {
         // board at a particular XY coordinates and since we're using grid we can directly
         // set that XY coordinate very easily.
         const snakeElement = document.createElement('div')
-        snakeElement.style.gridRowStart = segment.x;
-        snakeElement.style.gridColumnStart = segment.y;
+        snakeElement.style.gridRowStart = segment.y;
+        snakeElement.style.gridColumnStart = segment.x;
         // We add the blue color to our snake
         snakeElement.classList.add('snake');
         gameBoard.appendChild(snakeElement);
 
     })
+// Let's export this two functions so we can use them on the Game.js file
+// This two functions happens together every SNAKE_SPEED seconds.
 }

@@ -3,7 +3,7 @@
 import {update as updateSnake, draw as drawSnake, SNAKE_SPEED} from './snake.js'
 
 let lastRenderTime = 0;
-    // We create our gameBoard variable
+    // We create our gameBoard variable.
 const gameBoard = document.getElementById('game-board');
 
 
@@ -36,11 +36,17 @@ function main(currentTime){
 
 window.requestAnimationFrame(main);
 
+
+    
 function update() {
     updateSnake();
 }
 
     // In order to print everything, we pass in our gameBoard
 function draw() {
+    // When we draw our snake we aren't removing all of the previous pieces of
+    // the snake. What we need to do is take our gameBoard and set the innerHTML to
+    // nothing (''). This is going to clear everything in our view.
+    gameBoard.innerHTML = '';
     drawSnake(gameBoard);
 }
