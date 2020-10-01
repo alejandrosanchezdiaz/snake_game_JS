@@ -12,7 +12,6 @@ function main(currentTime){
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
     if (secondsSinceLastRender < 1 / SNAKE_SPEED) return;
 
-    console.log('Render');
     lastRenderTime = currentTime;
 
     update();
@@ -38,7 +37,7 @@ function main(currentTime){
 window.requestAnimationFrame(main);
 
 function update() {
-    updateSanke();
+    updateSnake();
 }
 
     // In order to print everything, we pass in our gameBoard

@@ -11,7 +11,7 @@ const snakeBody = [{ x: 11, y: 11}]
 //Let's export this to functions so we can use them on the Game.js file
 //This two functions happens together every SNAKE_SPEED seconds.
 export function update() {
-
+    console.log('update snake');
 }
 
 
