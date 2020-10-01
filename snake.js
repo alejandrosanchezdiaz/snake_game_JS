@@ -26,8 +26,8 @@ export function update() {
     }
 
     // The last thing we have to do is update the head based on where we're moving.
-    snakeBody[0].x += 1;
-    snakeBody[0].y += 0;
+    snakeBody[0].x += 0;
+    snakeBody[0].y += 1;
 }
 
 
@@ -57,3 +57,18 @@ export function draw(gameBoard) {
 // Let's export this two functions so we can use them on the Game.js file
 // This two functions happens together every SNAKE_SPEED seconds.
 }
+
+
+
+
+
+
+
+
+
+// NOTES
+// One thing that's kind of interesting: You'll notice is as Y increases, we actually move down.
+// That's an important thing to realize because when we're going to input our 
+// input-system we need to make sure that negative 1 for Y is moving up and
+// positive 1 for Y is moving down.
+// That's something that I always mess up myself.
