@@ -1,3 +1,4 @@
+<!-- Instead of using a Canvas, let's create the Snake Game with a Grid. -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,11 +23,21 @@
                 /* Our gameboard is gonna be always a square shape as large as posible */
                 width: 100vmin;
                 height: 100vmin;
+                grid-template-rows: repeat(21, 1fr);
+                grid-template-columns: repeat(21, 1fr);
             }
 
+            .snake{
+                background-color: hsl(200, 100%, 50%);
+                border: .25vmin solid black;
+            }
 
-
+            .food{
+                background-color: hsl(50, 100%, 50%);
+                border: .25vmin solid black;
+            }
         </style>
+        <script src="game.js" defer type="module"></script>
     </head>
 <body>
     <div id="game-board"></div>
