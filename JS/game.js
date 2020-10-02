@@ -1,6 +1,6 @@
     // Set up the game loop. The main function is gonna loop over and over again.
     // With lastRenderTime and SNAKE_SPEED we can control how fast our game is render.
-import {update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeInterception} from './snake.js'
+import {update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection} from './snake.js'
 import {update as updateFood, draw as drawFood } from './food.js'
 import {outsideGrid} from './grid.js'
 
@@ -9,10 +9,12 @@ let gameOver = false;
     // We create our gameBoard variable.
 const gameBoard = document.getElementById('game-board');
 
-
 function main(currentTime){
     if (gameOver) {
-        return alert('You lose!')
+        if (confirm("You lost. Press OK to restart.")) {
+            window.location = '/'
+        }
+        return;
     }
     window.requestAnimationFrame(main);
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
@@ -64,5 +66,5 @@ function draw() {
     // Check for failure states
 
 function checkDeath() {
-    gameOver = outsideGrid(getSnakeHead) || snakeInterception ()
+    gameOver = outsideGrid(getSnakeHead()) || snakeIntersection ()
 }

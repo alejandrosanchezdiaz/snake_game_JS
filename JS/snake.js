@@ -92,7 +92,7 @@ export function getSnakeHead() {
     // but one problem is that this is going to loop over the head of the snake so of
     // course, it's going to compare if the head of the snake is the same as the head of
     // the snake and that's going to always return true. So we want to ignore the head of the snake.
-export function snakeInterception() {
+export function snakeIntersection() {
         return onSnake(snakeBody[0], { ingnoreHead: true })
 
 }
